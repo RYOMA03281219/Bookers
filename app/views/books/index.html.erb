@@ -1,1 +1,33 @@
-indexページ
+<h1>Books</h1>
+
+<% @books.each do |book| %>
+
+  <p>タイトル</p>
+  <span>
+    <%= book_path book.title, book_path(book.id) %>
+  </span>
+
+<% end %>
+
+<h1>New book</h1>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>prohibited this book from being saved:
+
+  <ul>
+    <%= @book.errors.full_messages.each do |message| %>
+      <li><%= message%></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @book, url: '/books', method: :post do |f| %>
+
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+
+  <%= f.submit 'Create Book'%>
+
+  <% end %>
