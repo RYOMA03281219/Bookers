@@ -41,5 +41,4 @@ RSpec.describe Book, "モデルに関するテスト", type: :model do
     end
   end
   
-
 end
