@@ -26,6 +26,7 @@
 </table>
 
 <h1>New book</h1>
+
 <% if @book.errors.any? %>
   <%= @book.errors.count %>errors prohibited this book from being saved:
 
@@ -36,14 +37,15 @@
   </ul>
 <% end %>
 
+
 <%= form_with model: @book, url: '/books', method: :post do |f| %>
 
   <h4>Title</h4>
-  <%= f.text_field :title %>
+    <%= f.text_field :title %>
 
   <h4>Body</h4>
-  <%= f.text_area :body %>
+    <%= f.text_area :body %>
 
-  <%= f.submit 'Create Book'%>
+    <%= f.submit 'Create Book'%>
 
-  <% end %>
+<% end %>
